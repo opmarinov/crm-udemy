@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8"/>
+  <title>customer - view </title>
+  <link rel="stylesheet" type="text/css" href="../css/customer-view.css"/>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"/>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"></script>
+  <script src=" https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
+  <script src="../js/autocomplete.js"></script>
+  <script src="../js/side-bar.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous"/>
+</head>
+<body>
+
+<div class="side-bar">
+
+  <button class="side-bar-button" onclick="expandSideBar();"> <i class="fas fa-bars"></i> </button>
+
+  <br/>
+
+  <p th:text="${#authentication.principal.authorities}" style="color:whhite; font-size: 25px;"></p>-->
+  <br/>
+  <br/>
+
+  <div class="side-bar-user-info">
+
+    <i class="fas fa-user-circle" style="font-size:145px; color:white;"></i>
+
+    <p th:text="${#authentication.principal.username}" style="color:white; font-size:15px;"> </p>
+    <br/>
+    <p th:text="${#authentication.principal.authorities}" style="color:white; font-size: 15px;"></p>
+  </div>
+
+  <br/>
+  <br/>
+
+  <ul>
+    <li class="side-bar-icons" onclick="window.location.href='add'"><a style="float:left; text-decoration: none;" class="side-bar-buttons" href="#"> Add customer </a> <i class="fas fa-address-book"></i>
+      <div style="clear:both;"></div>
+    </li>
+    <li class="side-bar-icons"><a style="float:left; text-decoration: none;" class="side-bar-buttons" href="#"> Option 2 </a> <i class="fas fa-chart-bar"></i>
+      <div style="clear:both;"></div>
+    </li>
+    <li class="side-bar-icons"><a style="float:left; text-decoration: none;" class="side-bar-buttons" href="#"> Option 3 </a> <i class="fas fa-address-book"></i>
+      <div style="clear:both;"></div>
+    </li>
+  </ul>
+
+  <form th:action="@{/logout}"  method="post">
+    <button class="side-bar-logout"> Logout </button>
+  </form>
+
+  <div style="clear:both;"></div> <br/>
+
+</div>
+
+
+<h1 class="header"> CRM - Customer Relationship Management</h1>
+
+<!--INSERT CONTENT BELOW -->
+<div sec:authorize="hasRole('ADMIN')">
+
+<form action="/api/search" class="form-inline md-form form-sm" autocomplete="off">
+    <input id="search" class="form-control form-control-sm ml-3 w-75" type="text"
+           placeholder="Search" aria-label="Search" name="name"/>
+</form>
+
+<div id="suggestion-dropdown"></div>
+
+  <table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col">First name</th>
+    <th scope="col">Last name</th>
+    <th scope="col">Position</th>
+    <th scope="col">Email</th>
+    <th scope="col">Update</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="customer : ${customers}">
+    <td><i class="fas fa-user"></i></td>
+    <td th:text="${customer.firstname}"></td>
+    <td th:text="${customer.lastname}"></td>
+    <td th:text="${customer.position}"></td>
+    <td th:text="${customer.email}"></td>
+    <td><a th:href="${'/api/edit?id=' + customer.id}"> <i class="fas fa-pen"></i> </a></td>
+    <td><a th:href="${'/api/delete?id=' + customer.id}"> <i style="color:red;" class="fas fa-trash-alt"></i></a></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<div sec:authorize="hasRole('ADMIN')">
+  <p style="float:right;"> HELLOOOO ADMIN </p>
+</div>
+
+</body>
+</html>

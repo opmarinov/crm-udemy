@@ -1,0 +1,198 @@
+body{
+  overflow-x: hidden;
+}
+
+tbody{
+  cursor: pointer;
+}
+
+*:focus{
+  outline:none;
+}
+
+.header{
+  width:100%;
+  height: 100px;
+  font-family: "Calibri Light", serif;
+  font-weight: bold;
+  background-color: rgba(50, 105, 209, 0.9);
+  text-align: center;
+  color:white;
+  padding:25px;
+}
+
+.center-element{
+  /*position: fixed;*/
+/*  position: absolute;*/
+  width: 100%;
+  overflow-y: scroll;
+  top:50%;
+ /* left:50%;
+  transform: translate(-50%, -50%);*/
+  /*height: 40%;*/
+  height: 500px;
+  margin-top:20px;
+}
+
+.crm-footer{
+  height: 100px;
+  background-color: rgba(50, 105, 209, 0.9);
+  width:100%;
+  text-align: center;
+  padding:10px;
+  color:white;
+  font-family: "Calibri Light", Serif;
+}
+
+#suggestion-dropdown{
+  /*background-color:rgba(226, 226, 226, 1);*/
+  background-color:white;
+  text-align: center;
+  /*width: 76.8%;*/
+  width: 94.26%;
+  margin: auto;
+  cursor: pointer;
+  position:absolute;
+  /*left: 11.6%;*/
+}
+
+#search{
+  text-align: center;
+  width: 95.85%!important;
+  margin: 0!important;
+}
+
+.center-search-bar{
+  width:80%;
+  margin:auto;
+}
+
+form{
+  margin-top: 20px;
+  width: 100%;
+}
+
+.add-button{
+  margin:10px;
+  padding:20px;
+  background-color: transparent;
+  border-radius: 100px;
+  text-align: center;
+  border: 2px solid transparent;
+  width: 70px;
+  transition: 0.2s;
+  float: left;
+}
+
+.add-button:hover{
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid #48ce4f;
+}
+
+.add-customer-label{
+  margin-top: 31.5px;
+  float: left;
+}
+
+.nav-buttons{
+  padding:20px;
+  background-color: #48ce4f;
+  color:white;
+  border:none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+/*width was 45*/
+.side-bar{
+  /*width: 300px;*/
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  top:0;
+  left: -248.531px;
+  text-align: center;
+  cursor:pointer;
+  overflow: hidden;
+}
+
+.side-bar > ul{
+  list-style-type: none;
+  padding:0;
+}
+
+.side-bar > ul > li {
+  margin:5px;
+}
+
+.side-bar > ul > li:hover {
+  background-color: grey;
+  color:black;
+}
+
+.side-bar-button{
+  color:white;
+  background: transparent;
+  border:none;
+  float:right;
+  border-radius: 25px;
+  padding: 12px 20px;
+  cursor:pointer;
+}
+
+.side-bar-buttons{
+  display: block;
+  padding: 15px 67px;
+  color: white;
+ /* border:1px solid white;*/
+  margin: 5px;
+  text-decoration: none;
+}
+
+.side-bar-logout{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #ff413f;
+  color: white;
+  padding: 10px 5px;
+  font-size: 14px;
+  border: none;
+  text-align: right;
+}
+
+/*
+.side-bar-buttons:hover{
+  color:black;
+  background-color: white;
+}
+*/
+
+.side-bar-icons > i{
+  font-size: 38px;
+  color: white;
+  float: right;
+  padding: 14px 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  rgba(0,0,0,0.4);
+}
+
+
