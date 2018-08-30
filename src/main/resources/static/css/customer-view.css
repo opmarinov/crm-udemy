@@ -49,7 +49,7 @@ tbody{
   background-color:white;
   text-align: center;
   /*width: 76.8%;*/
-  width: 94.26%;
+  width: 96.22%;
   margin: auto;
   cursor: pointer;
   position:absolute;
@@ -58,7 +58,7 @@ tbody{
 
 #search{
   text-align: center;
-  width: 95.85%!important;
+  width: 100%!important;
   margin: 0!important;
 }
 

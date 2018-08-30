@@ -50,4 +50,12 @@ public class RestSuggestionDropdownController {
 
     return customerEntities;
   }
+
+
+  @ResponseBody
+  @GetMapping("/recieve/image")
+  public String responseFromImageRetrivial(@RequestParam String imageSource) {
+    String src = imageSource;
+    return "yes baby !";
+  }
 }

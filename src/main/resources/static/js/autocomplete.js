@@ -5,6 +5,10 @@ $(document).ready(function () {
   var currentPosition = -1;
   var elems = document.getElementById('suggestion-dropdown').childNodes;
 
+  $('.suggestion-dropdown').width(
+      String.valueOf($('#search').width())
+  );
+
   $('#search').on('keyup', function (e) {
     // console.log('im here');
 
