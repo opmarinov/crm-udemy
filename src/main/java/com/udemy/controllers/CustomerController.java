@@ -1,7 +1,9 @@
 package com.udemy.controllers;
 
+import com.udemy.entity.ContributionEntity;
 import com.udemy.entity.CustomerEntity;
 import com.udemy.repositories.CustomerRepository;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +63,15 @@ public class CustomerController {
 
   @GetMapping("/edit/save")
   public String editCustomer(@ModelAttribute(name = "customer") CustomerEntity customer){
+
+    /*This is currently hardcoded but in the future each person will have his
+    contrubution either automatically calculated or his boss will input it manually or something..*/
+
+    ContributionEntity contributionEntity = new ContributionEntity();
+    BigInteger biggy = new BigInteger("1000");
+    contributionEntity.setValue(biggy);
+
+    customer.setContribution(contributionEntity);
     customerRepository.save(customer);
 
     return "redirect:/api/customers";

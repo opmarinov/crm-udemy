@@ -49,8 +49,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
         .authorizeRequests()
-        .antMatchers("/api/customers").hasRole("ADMIN")
-        .antMatchers("/api/customers").hasRole("USER")
+        .antMatchers("/api/*").hasRole("ADMIN")
+        .antMatchers("/api/*").hasRole("USER")
         .and()
         .formLogin()
         .loginPage("/login").loginProcessingUrl("/authenticate").defaultSuccessUrl("/api/customers", true)
