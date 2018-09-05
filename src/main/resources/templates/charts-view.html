@@ -8,16 +8,44 @@
   <script type="application/javascript" src="../js/jquery.canvasjs.min.js"></script>
   <script type="application/javascript" src="../js/canvasjs.min.js"></script>
   <script src="../js/charts.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/customer-view.css"/>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"/>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
+
+  <script src="../js/side-bar.js"></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous"/>
   <style>
-    canvas{
+    canvas {
       cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<div id="chartContainer" style="cursor:pointer; height: 370px; width: 50%; border: 1px solid black;"></div>
-<div id="chartContainer2" style="cursor:pointer; height: 370px; width: 50%; border: 1px solid black;"></div>
-<a href="/api/customers" > Back </a>
+<div th:replace="customer-view :: side-bar"></div>
+<div th:replace="customer-view :: header"></div>
+
+<div class="row justify-content-center">
+    <select name="charts" id="selectChart">
+      <option value="Pie">Pie chart</option>
+      <option value="Bar">Bar chart</option>
+      <option value="Line">Line chart</option>
+    </select>
+
+    <div id="chartContainer" style="margin: 5px; cursor:pointer; height: 370px; width: 50%; border: 1px solid black;"></div>
+
+    <a href="/api/customers"> Back </a>
+</div>
+
 </body>
 </html>

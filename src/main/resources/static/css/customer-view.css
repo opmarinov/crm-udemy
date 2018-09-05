@@ -19,6 +19,7 @@ tbody{
   text-align: center;
   color:white;
   padding:25px;
+  cursor:pointer;
 }
 
 .center-element{

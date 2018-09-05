@@ -19,15 +19,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
           crossorigin="anonymous"></script>
-  <script src="../js/autocomplete.js"></script>
-  <script src="../js/side-bar.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous"/>
+
+
+  <script src="../js/autocomplete.js"></script>
+  <script src="../js/side-bar.js"></script>
+
+
 </head>
 <body>
 
-<div class="side-bar">
+<div class="side-bar" th:fragment="side-bar">
 
   <button class="side-bar-button" onclick="expandSideBar();"><i class="fas fa-bars"></i></button>
 
@@ -53,7 +57,7 @@
       <div style="clear:both;"></div>
     </li>
     <li class="side-bar-icons" onclick="window.location.href='charts'"><a style="float:left; text-decoration: none;"
-                                  class="side-bar-buttons" href="#"> Option 2 </a> <i
+                                  class="side-bar-buttons" href="#"> Charts </a> <i
         class="fas fa-chart-bar"></i>
       <div style="clear:both;"></div>
     </li>
@@ -74,7 +78,7 @@
 </div>
 
 
-<h1 class="header"> CRM - Customer Relationship Management</h1>
+<h1 class="header" th:fragment="header" onclick="window.location.href='/api/customers'"> CRM - Customer Relationship Management</h1>
 
 <!--INSERT CONTENT BELOW -->
 <div sec:authorize="hasRole('ADMIN')">
@@ -125,7 +129,8 @@
 </div>
 
 <div sec:authorize="hasRole('ADMIN')">
-  <p style="float:right;"> HELLOOOO ADMIN </p>
+  <!--Just an example on how the has role thing works-->
+  <!--<p style="float:right;"> HELLOOOO ADMIN </p>-->
 </div>
 
 </body>
